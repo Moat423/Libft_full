@@ -1,0 +1,9 @@
+[submodule "lib_ft"]
+	path = lib_ft
+	url = git@github.com:Moat423/42Libft.git
+[submodule "get_next_line"]
+	path = get_next_line
+	url = git@github.com:Moat423/42get_next_line
+[submodule "lib_printf"]
+	path = lib_printf
+	url = git@github.com:Moat423/42Libprintf.git
