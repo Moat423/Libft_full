@@ -64,6 +64,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(LIB_FT_DIR) fclean
+	$(MAKE) -C $(LIB_PRINTF_DIR) fclean
 
 re: fclean all
 
