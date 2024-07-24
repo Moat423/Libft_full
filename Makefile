@@ -29,12 +29,12 @@ LIB_FT := $(LIB_FT_DIR)/libft.a
 #LIB_FT_SRCS := $(shell find $(LIB_FT_DIR) -name '*.c')
 #LIB_FT_OBJS := $(LIB_FT_SRCS:%.c=%.o)
 
-LIB_PRINTF := $(LIB_PRINTF_DIR)/libprintf.a
+LIB_PRINTF := $(LIB_PRINTF_DIR)/libftprintf.a
 #LIB_PRINTF_SRCS := $(shell find $(LIB_PRINTF_DIR) -name '*.c')
 #LIB_PRINTF_OBJS := $(LIB_PRINTF_SRCS:%.c=%.o)
 
 GNL_SRCS := $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c \
-			$(GNL_DIR)/get_next_line.h
+			#$(GNL_DIR)/get_next_line.h
 
 GNL_OBJS := $(GNL_SRCS:%.c=%.o)
 
@@ -51,8 +51,11 @@ $(LIB_FT):
 $(LIB_PRINTF):
 	$(MAKE) -C $(LIB_PRINTF_DIR)
 
-$(GNL_OBJS): $(GNL_SRCS)
-	$(CC) $(CFLAGS) -c $(GNL_SRCS) -o $(GNL_OBJS)
+#$(GNL_OBJS): $(GNL_SRCS)
+#	$(CC) $(CFLAGS) -c $(GNL_SRCS) -o $(GNL_OBJS)
+
+$(GNL_OBJS): %.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(GNL_OBJS)
