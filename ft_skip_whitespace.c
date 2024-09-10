@@ -6,12 +6,12 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 17:39:01 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/08/26 17:39:09 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/09/10 12:45:19 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // returns the amount of spaces that need to be skipped (according to isspace)
-int	skip_whitespace(const char *str)
+int	ft_skip_whitespace(const char *str)
 {
 	int	i;
 
