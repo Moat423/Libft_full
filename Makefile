@@ -6,7 +6,7 @@
 #    By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 16:40:31 by lmeubrin          #+#    #+#              #
-#    Updated: 2024/07/02 16:54:41 by lmeubrin         ###   ########.fr        #
+#    Updated: 2024/09/10 11:41:49 by lmeubrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,13 @@ GNL_DIR := get_next_line
 
 LIB := ar
 LIBFLAGS := -rcs
+
+OBJ_DIR := objs
+
+EXTENDED_SRCS := ft_print_char_array.c ft_print_int_array.c helpers2.c \
+                ft_skip_whitespace.c ft_sort_int_tab.c ft_strtoimax.c helpers.c
+
+EXTENDED_OBJS := $(addprefix $(OBJ_DIR)/, $(notdir $(EXTENDED_SRCS:%.c=%.o)))
 
 LIB_FT_SRCS := $(addprefix $(LIB_FT_DIR)/, ft_isascii.c  ft_memmove.c \
 ft_strlcpy.c  ft_tolower.c ft_bzero.c    ft_isdigit.c  ft_memset.c \
@@ -51,7 +58,7 @@ GNL_HDR := $(GNL_DIR)/get_next_line.h
 
 all: $(NAME)
 
-$(NAME): $(LIB_FT_OBJS) $(LIB_PRINTF_OBJS) $(GNL_OBJS)
+$(NAME): $(LIB_FT_OBJS) $(LIB_PRINTF_OBJS) $(GNL_OBJS) $(EXTENDED_OBJS)
 	ar rcs $@ $^
 
 $(LIB_FT_DIR)/%.o: $(LIB_FT_DIR)/%.c
@@ -63,15 +70,20 @@ $(LIB_PRINTF_DIR)/%.o: $(LIB_PRINTF_DIR)/%.c
 $(GNL_DIR)/%.o: $(GNL_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(GNL_OBJS)
-	$(MAKE) -C $(LIB_FT_DIR) clean
-	$(MAKE) -C $(LIB_PRINTF_DIR) clean
+	@rm -f $(GNL_OBJS)
+	@$(MAKE) -C $(LIB_FT_DIR) clean
+	@$(MAKE) -C $(LIB_PRINTF_DIR) clean
+	@rm -dRf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
-	$(MAKE) -C $(LIB_FT_DIR) fclean
-	$(MAKE) -C $(LIB_PRINTF_DIR) fclean
+	@rm -f $(NAME)
+	@$(MAKE) -C $(LIB_FT_DIR) fclean
+	@$(MAKE) -C $(LIB_PRINTF_DIR) fclean
 
 debug:
     @echo "LIB_FT_OBJS: $(LIB_FT_OBJS)"
