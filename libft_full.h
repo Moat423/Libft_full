@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/09/13 17:46:49 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:10:45 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		ft_strtoimax(const char *nptr, char **endptr, int base);
 int		determine_sign(const char *nptr);
 double	ft_atod(char *str);
 int		ft_isdoubleable(char *str);
+double	ft_strtod_s(char *str, int *error);
 
 #endif // !LIBFT_FULL_H
