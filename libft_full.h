@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/09/16 14:24:44 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:27:39 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		determine_sign(const char *nptr);
 double	ft_atod(char *str);
 int		ft_isdoubleable(char *str);
 double	ft_strtod_s(char *str, int *error);
+char	*ft_strstr(char *str, char *substr);
 
 //fprintf
 int		ft_fprintf(const int fd, const char *str, ...);
