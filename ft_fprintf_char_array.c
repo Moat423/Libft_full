@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_fprintf_char_array.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 11:27:03 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/09/23 13:33:02 by lmeubrin         ###   ########.fr       */
+/*   Created: 2024/09/23 17:24:08 by lmeubrin          #+#    #+#             */
+/*   Updated: 2024/09/23 17:24:28 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//find first occurance of substr in str
-char	*ft_strstr(char *str, char *substr)
-{
-	int	i;
-	int	j;
+#include "libft_full.h"
 
-	i = 0;
-	j = 0;
-	if (!str || !substr)
-		return (0);
-	if (!*substr)
-		return (str);
-	while (str[i])
+int	ft_fprintf_char_array(int fd, char **array)
+{
+	int	count;
+
+	count = 0;
+	while (*array)
 	{
-		while (substr[j] && str[i + j] == substr[j])
-			j++;
-		if (!substr[j])
-			return (&str[i]);
-		i++;
+		count += ft_fprintf(fd, "%s", (*array));
+		write(fd, "\n", 1);
+		++array;
 	}
-	return (0);
+	write(fd, "\n", 1);
+	return (count);
 }
