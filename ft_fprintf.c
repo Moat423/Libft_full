@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:10:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/09/16 18:33:08 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/09/24 14:58:55 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	fstring_iteration(const int fd, const char *str, va_list args)
 				return (conversion_out);
 		}
 		else
-			counter += write(1, &str[i++], 1);
+			counter += write(fd, &str[i++], 1);
 	}
 	return (counter);
 }
