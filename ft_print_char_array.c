@@ -6,21 +6,24 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:35:46 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/09/10 10:44:54 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:55:27 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_full.h"
 
 //while loop to print out charlist to test it
-void	ft_printf_char_array(char *const *array, const int len)
+int	ft_printf_char_array(char *const *array)
 {
 	int	i;
+	int	count;
 
 	i = 0;
-	while (i < len)
+	count = 0;
+	while (array[i])
 	{
-		ft_printf("n%d: %s\n", i, array[i]);
+		count += ft_printf("n%d: %s\n", i, array[i]);
 		i++;
 	}
+	return (count);
 }

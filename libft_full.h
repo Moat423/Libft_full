@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/10/15 13:59:21 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:55:18 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "lib_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
 
-void	ft_printf_char_array(char *const *array, const int len);
+int		ft_printf_char_array(char *const *array);
 void	ft_printf_int_array(const int *array, const int len);
 int		ft_skip_whitespace(const char *str);
 void	ft_sort_int_tab(int *tab, int size);
