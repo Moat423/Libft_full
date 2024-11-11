@@ -6,7 +6,7 @@
 #    By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 16:40:31 by lmeubrin          #+#    #+#              #
-#    Updated: 2024/10/09 12:29:35 by lmeubrin         ###   ########.fr        #
+#    Updated: 2024/11/11 15:09:24 by lmeubrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ MAKEFLAGS += --warn-undefined-variables
 .ONESHELL:
 
 CC := cc
-CFLAGS := -Werror -Wall -Wextra -I.
+CFLAGS := -Werror -Wall -Wextra -I. -fPIE
 NAME := libft.a
 
 LIB_FT_DIR := lib_ft
