@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/10/23 14:55:18 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2024/11/23 10:57:31 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_strstr(char *str, char *substr);
 char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 int		ft_fprintf_char_array(int fd, char **array);
 void	ft_strappend(char *string, char *appendix);
+int		ft_istrchr(const char *s, char c);
 
 //fprintf
 int		ft_fprintf(const int fd, const char *str, ...);
