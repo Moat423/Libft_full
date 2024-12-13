@@ -48,9 +48,10 @@ UINTMAX_MAX is returned, and errno is set to ERANGE.
 //really cool way to get the absolute value:
 	//i += (sign ^ (sign >> 31)) - (sign >> 31);
 
+#include "libft_full.h"
+
 int	ft_strtoimax(const char *nptr, char **endptr, int base);
-int	skip_whitespace(const char *str);
-int	ft_atoi_base_e(const char *nptr, char ***endptr, int base, int sign);
+int	ft_atoi_base_e(const char *nptr, char **endptr, int base, int sign);
 int	determine_sign(const char *nptr);
 int	check_base(const char *nptr, char ***endprt, int base, int sign);
 
@@ -61,20 +62,16 @@ int	ft_strtoimax(const char *nptr, char **endptr, int base)
 	int	nb;
 
 	errno = 0;
-	*endptr = (char *) nptr;
-	if (!(base >= 0 && base <= 36) || (nptr == NULL || *nptr == '\0'))
-	{
-		errno = EINVAL;
-		return (0);
-	}
-	i = skip_whitespace(nptr);
+	i = ft_skip_whitespace(nptr);
 	sign = determine_sign(&nptr[i]);
 	if (sign)
 		i++;
 	else
 		sign = 1;
 	nptr = nptr + i;
-	nb = check_base(nptr, &endptr, base, sign);
+	nb = check_base(nptr, endptr, base, sign);
+	if (endptr && *endptr == nptr)
+		errno = EINVAL;
 	return (nb);
 }
 
@@ -90,7 +87,7 @@ int	check_base(const char *nptr, char ***endptr, int base, int sign)
 		if (nptr[i] == '0' && (nptr[i + 1] == 'x' || nptr[i + 1] == 'X'))
 			nb = ft_atoi_base_e(&nptr[i + 2], endptr, 16, sign);
 		else if (nptr[i] == '0')
-			nb = ft_atoi_base_e(&nptr[i++], endptr, 8, sign);
+			nb = ft_atoi_base_e(&nptr[i], endptr, 8, sign);
 		else
 			nb = ft_atoi_base_e(&nptr[i], endptr, 10, sign);
 	}
@@ -100,7 +97,7 @@ int	check_base(const char *nptr, char ***endptr, int base, int sign)
 			i += 2;
 		nb = ft_atoi_base_e(&nptr[i], endptr, 16, sign);
 	}
-	else if (base >= 2 && base <= 32)
+	else if (base >= 2 && base <= 36)
 		nb = ft_atoi_base_e(&nptr[i], endptr, base, sign);
 	return (nb);
 }
@@ -125,7 +122,7 @@ int	ft_char_to_value(char c, int base)
 }
 
 // returns int from nptr with base (on error endptr=wrong char)
-int	ft_atoi_base_e(const char *nptr, char ***endptr, int base, int sign)
+int	ft_atoi_base_e(const char *nptr, char **endptr, int base, int sign)
 {
 	long	result;
 	int		buffer;
@@ -133,23 +130,23 @@ int	ft_atoi_base_e(const char *nptr, char ***endptr, int base, int sign)
 
 	result = 0;
 	i = 0;
-	while (*(nptr + i))
+	while (nptr[i])
 	{
-		buffer = ft_char_to_value(*(nptr + i), base);
+		buffer = ft_char_to_value(nptr[i], base);
 		if (buffer == -1)
-			break ;
-		if ((i == 9 && sign == 1 && (result * base) > INT_MAX - buffer) \
-		|| ((i == 9 && sign == -1 && (-result * 10) < INT_MIN + buffer)))
+			break;
+		if ((result > (INT_MAX - buffer) / base && sign == 1) ||
+			(result > (INT_MIN + buffer) / -base && sign == -1))
 		{
 			errno = ERANGE;
-			if (sign == 1)
-				return (INT_MAX);
-			else
-				return (INT_MIN);
+			result = (sign == 1) ? INT_MAX : INT_MIN;
+			break;
 		}
 		result = result * base + buffer;
-		**endptr = (char *)(nptr + ++i);
+		i++;
 	}
+	if (endptr)
+		*endptr = (char *)(nptr + i);
 	return ((int)(result * sign));
 }
 
