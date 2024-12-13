@@ -69,7 +69,7 @@ int	ft_strtoimax(const char *nptr, char **endptr, int base)
 	else
 		sign = 1;
 	nptr = nptr + i;
-	nb = check_base(nptr, endptr, base, sign);
+	nb = check_base(nptr, &endptr, base, sign);
 	if (endptr && *endptr == nptr)
 		errno = EINVAL;
 	return (nb);
@@ -85,20 +85,20 @@ int	check_base(const char *nptr, char ***endptr, int base, int sign)
 	if (base == 0)
 	{
 		if (nptr[i] == '0' && (nptr[i + 1] == 'x' || nptr[i + 1] == 'X'))
-			nb = ft_atoi_base_e(&nptr[i + 2], endptr, 16, sign);
+			nb = ft_atoi_base_e(&nptr[i + 2], *endptr, 16, sign);
 		else if (nptr[i] == '0')
-			nb = ft_atoi_base_e(&nptr[i], endptr, 8, sign);
+			nb = ft_atoi_base_e(&nptr[i], *endptr, 8, sign);
 		else
-			nb = ft_atoi_base_e(&nptr[i], endptr, 10, sign);
+			nb = ft_atoi_base_e(&nptr[i], *endptr, 10, sign);
 	}
 	else if (base == 16)
 	{
 		if (nptr[i] == '0' && (nptr[i + 1] == 'x' || nptr[i + 1] == 'X'))
 			i += 2;
-		nb = ft_atoi_base_e(&nptr[i], endptr, 16, sign);
+		nb = ft_atoi_base_e(&nptr[i], *endptr, 16, sign);
 	}
 	else if (base >= 2 && base <= 36)
-		nb = ft_atoi_base_e(&nptr[i], endptr, base, sign);
+		nb = ft_atoi_base_e(&nptr[i], *endptr, base, sign);
 	return (nb);
 }
 
