@@ -6,7 +6,7 @@
 #    By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 16:40:31 by lmeubrin          #+#    #+#              #
-#    Updated: 2024/11/23 10:54:25 by lmeubrin         ###   ########.fr        #
+#    Updated: 2024/12/16 14:31:08 by lmeubrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ LIB_PRINTF_SRCS := $(addprefix $(LIB_PRINTF_DIR)/,	ft_printf.c \
 													put_return.c)
 LIB_PRINTF_OBJS := $(LIB_PRINTF_SRCS:%.c=%.o)
 
-GNL_SRCS := $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
+GNL_SRCS := $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c $(GNL_DIR)/get_next_line_prompt.c
 GNL_OBJS := $(GNL_SRCS:%.c=%.o)
 GNL_HDR := $(GNL_DIR)/get_next_line.h
 
