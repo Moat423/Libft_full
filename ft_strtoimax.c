@@ -6,13 +6,14 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 17:40:37 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/08/26 17:41:37 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 16:13:22 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <errno.h>
 #include <limits.h>
 #include <stdlib.h>
+#include "libft_full.h"
 
 /*
 DESCRIPTION
@@ -102,23 +103,16 @@ int	check_base(const char *nptr, char ***endptr, int base, int sign)
 	return (nb);
 }
 
-// converts char to value
-int	ft_char_to_value(char c, int base)
+int	is_overflowing(int sign)
 {
-	int	buffer;
+	int	result;
 
-	if (c >= 'A' && c <= 'Z')
-		buffer = c - 55;
-	else if (c >= 'a' && c <= 'z')
-		buffer = c - 87;
-	else if (c >= '0' && c <= '9')
-		buffer = c - '0';
+	errno = ERANGE;
+	if (sign == 1)
+		result = INT_MAX;
 	else
-		return (-1);
-	if (buffer < base)
-		return (buffer);
-	else
-		return (-1);
+		result = INT_MIN;
+	return (result);
 }
 
 // returns int from nptr with base (on error endptr=wrong char)
@@ -134,13 +128,12 @@ int	ft_atoi_base_e(const char *nptr, char **endptr, int base, int sign)
 	{
 		buffer = ft_char_to_value(nptr[i], base);
 		if (buffer == -1)
-			break;
-		if ((result > (INT_MAX - buffer) / base && sign == 1) ||
+			break ;
+		if ((result > (INT_MAX - buffer) / base && sign == 1) || \
 			(result > (INT_MIN + buffer) / -base && sign == -1))
 		{
-			errno = ERANGE;
-			result = (sign == 1) ? INT_MAX : INT_MIN;
-			break;
+			result = is_overflowing(sign);
+			break ;
 		}
 		result = result * base + buffer;
 		i++;

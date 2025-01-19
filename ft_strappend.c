@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:27:18 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/10/15 14:01:00 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/01/19 15:58:15 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	ft_strappend(char *string, char *appendix)
 	free(appendix);
 	if (new_string)
 		string = new_string;
-	// free(new_string);
 }
