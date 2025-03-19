@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rperror.c                                       :+:      :+:    :+:   */
+/*   ft_skip_spaces.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmeubrin <lmeubrin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 14:05:07 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/03/19 14:10:05 by lmeubrin         ###   ########.fr       */
+/*   Created: 2025/03/19 11:01:21 by lmeubrin          #+#    #+#             */
+/*   Updated: 2025/03/19 11:01:27 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <errno.h>
-#include <stdio.h>
-
-int	ft_rperror(char *str)
+//returns index increased by the ammount of spaces that follow the index given
+int	ft_skip_space(const char *line, int i)
 {
-	perror(str);
-	return (errno);
+	while (line[i] == ' ')
+		++i;
+	return (i);
 }
