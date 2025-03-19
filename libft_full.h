@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/01/19 16:12:52 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:01:16 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ char	*ft_strjoin3(char const *s1, char const *s2, char const *s3);
 int		ft_fprintf_char_array(int fd, char **array);
 void	ft_strappend(char *string, char *appendix);
 int		ft_istrchr(const char *s, char c);
+int		ft_float_len(char *str);
+int		ft_rperror(char *str);
+int		ft_skip_space(const char *line, int i);
 //helpers2.c for strtoimax
 int		ft_char_to_value(char c, int base);
 
