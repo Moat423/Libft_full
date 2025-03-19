@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/03/19 11:01:16 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/03/19 14:33:48 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_istrchr(const char *s, char c);
 int		ft_float_len(char *str);
 int		ft_rperror(char *str);
 int		ft_skip_space(const char *line, int i);
+float	ft_strtof(char *str, int *error);
 //helpers2.c for strtoimax
 int		ft_char_to_value(char c, int base);
 

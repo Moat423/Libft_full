@@ -6,13 +6,13 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:18:58 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/09/14 11:29:38 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:36:59 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_full.h"
 
-//returns 1 if number is floatable and 0 if not
+//returns 0 if number is floatable and 1 if not
 int	ft_isdoubleable(char *str)
 {
 	int	dotcount;

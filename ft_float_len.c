@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:54:57 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/03/19 10:55:18 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:04:00 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int	ft_float_len(char *str)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (i);
 }
