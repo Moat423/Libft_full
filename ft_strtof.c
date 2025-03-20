@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:33:24 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/03/19 15:01:31 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/03/20 14:48:47 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ float	ft_atof(char *str)
 float	ft_strtof(char *str, int *error)
 {
 	*error = 0;
-	if (!ft_float_len(str))
+	if (ft_isdoubleable(str))
 	{
 		*error = 1;
 		return (0);
 	}
 	return (ft_atof(str));
 }
+
