@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:37:54 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/03/31 12:22:43 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/04/01 13:51:53 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ float	ft_strtof(char *str, int *error);
 //helpers2.c for strtoimax
 int		ft_char_to_value(char c, int base);
 float	ft_hypothenuse(float opposite, float adjacent);
+void	ft_insertion_sort(float *arr, size_t size);
 
 //fprintf
 int		ft_fprintf(const int fd, const char *str, ...);
