@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:50:40 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/04/01 13:51:23 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/04/08 11:54:46 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_insertion_sort(float *arr, size_t size)
 {
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
 	float	key;
 
 	i = 1;
