@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 14:33:24 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/03/20 14:48:47 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/04/29 14:47:51 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,3 @@ float	ft_strtof(char *str, int *error)
 	}
 	return (ft_atof(str));
 }
-
