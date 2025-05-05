@@ -6,7 +6,7 @@
 #    By: lmeubrin <lmeubrin@student.42berlin.       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 16:40:31 by lmeubrin          #+#    #+#              #
-#    Updated: 2025/04/22 16:26:56 by lmeubrin         ###   ########.fr        #
+#    Updated: 2025/05/05 13:39:19 by lmeubrin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ EXTENDED_SRCS := ft_print_char_array.c ft_print_int_array.c helpers2.c \
 				ft_atod.c ft_isdoubleable.c ft_strtod_s.c ft_fprintf.c ft_strstr.c \
 				ft_strjoin3.c ft_fprintf_char_array.c ft_strappend.c ft_istrchr.c \
 				ft_skip_space.c ft_rperror.c ft_float_len.c ft_strtof.c ft_hypothenuse.c \
-				ft_insertion_sort.c
+				ft_insertion_sort.c ft_isspace.c
 
 EXTENDED_OBJS := $(addprefix $(OBJ_DIR)/, $(notdir $(EXTENDED_SRCS:%.c=%.o)))
 
