@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 16:56:01 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/05/06 18:02:42 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/05/06 18:18:26 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	int		i;
 	int		j = 1;
 
-	fd = open("testfile", O_RDONLY);
+	fd = open("bumps.rt", O_RDONLY);
 	fd2 = open("testfile2", O_RDONLY);
 	if (fd == -1)
 		return (EXIT_FAILURE);
@@ -32,13 +32,14 @@ int	main(void)
 	i = 1;
 	while (i < 4)
 	{
+		printf("first file:\n");
 		printf("%d:'%s'\n", i, line);
-		line = get_next_line(fd);
 		line = get_next_line(fd2);
 		printf("second file:\n");
 		printf("%d:'%s'\n", j, line);
 		j++;
 		i++;
+		line = get_next_line(fd);
 	}
 	return (EXIT_SUCCESS);
 }
