@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:28:08 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/05/30 11:09:11 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:58:11 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdint.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 20
 # endif //BUFFER_SIZE
 
 char			*get_next_line(int fd);

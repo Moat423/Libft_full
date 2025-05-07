@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 15:30:22 by lmeubrin          #+#    #+#             */
-/*   Updated: 2024/05/30 11:15:21 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:56:30 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ char	*ft_substr_diff(char *src, unsigned int len)
 	dest = malloc(len + 1);
 	if (!dest)
 		return (NULL);
-	gnl_strlcpy(dest, src, len);
 	while (src[i] && i < len)
 	{
 		dest[i] = src[i];

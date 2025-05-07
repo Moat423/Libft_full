@@ -6,7 +6,7 @@
 /*   By: lmeubrin <lmeubrin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 11:45:47 by lmeubrin          #+#    #+#             */
-/*   Updated: 2025/05/07 11:19:27 by lmeubrin         ###   ########.fr       */
+/*   Updated: 2025/05/07 13:59:57 by lmeubrin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,12 @@ char	*read_into( int fd, char *buffer)
 	long long		readlen;
 
 	readlen = 1;
-	while (!gnl_strchr(buffer, '\n') && readlen > 0)
+	while ((!buffer || !gnl_strchr(buffer, '\n')) && readlen > 0)
 	{
-		len = gnl_strlen(buffer);
+		if (!buffer)
+			len = 0;
+		else
+			len = gnl_strlen(buffer);
 		buffer = ft_realloc(buffer, len);
 		if (!buffer)
 			return (NULL);
